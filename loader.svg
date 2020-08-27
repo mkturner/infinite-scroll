@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(241, 242, 243) none repeat scroll 0% 0%; display: block; --darkreader-inline-bgcolor:#1f2223; --darkreader-inline-bgimage:none; shape-rendering: auto;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(245, 245, 245) none repeat scroll 0% 0%; display: block; --darkreader-inline-bgcolor:#1f2223; --darkreader-inline-bgimage:none; shape-rendering: auto;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">
 <g transform="rotate(0 50 50)">
   <rect x="47" y="24" rx="2.4" ry="2.4" width="6" height="12" fill="#13df45" style="--darkreader-inline-fill:#34ee61;" data-darkreader-inline-fill="">
     <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9166666666666666s" repeatCount="indefinite"></animate>
