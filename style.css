@@ -40,3 +40,13 @@ h1 {
         works using relative size. without this loader will 
         look off-center. */
 }
+
+/* Image container */
+.image-container {
+    margin: 10px 20%;
+}
+
+.image-container img {
+    width: 100%;
+    margin-top: 5px;
+}
