@@ -10,8 +10,8 @@ let photosArray = [];
 const count = 10;
 const apiKey = '1nG2iq_FwN2fH8I2MlQalKeWPymA714cmquEGJtcXwM';
 const orientation = 'landscape';
-const query = 'africa'
-const unsplashApiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&orientation=${orientation}&query=&{query}`;
+const query = 'dj'
+const unsplashApiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${query}&orientation=${orientation}`;
 
 // Helper function that sets attributes on DOM Elements
 function setAttributes(element, attributes) {
