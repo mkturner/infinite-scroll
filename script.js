@@ -58,5 +58,13 @@ async function getPhotos() {
     }
 }
 
+// Check scrollbar position, load more if near bottom
+window.addEventListener('scroll', () => {
+    // See if user has scrolled 70% of page, load more if so
+    if (window.innerHeight + window.scrollY >= (document.body.offsetHeight * 0.7)) {
+        getPhotos();
+    };
+});
+
 // On load
 getPhotos();
