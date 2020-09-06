@@ -4,7 +4,7 @@ const imageContainer = document.getElementById('image-container');
 const loader = document.getElementById('loader');
 
 // 'let' instead of 'const' because value will change
-let ready = false;
+let ready = false; // guard condition for  getPhotos();
 let imagesLoaded = 0;
 let totalImages  = 0;
 let photosArray = [];
@@ -18,10 +18,12 @@ const unsplashApiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiK
 
 // Check if all images were loaded
 function imageLoaded() {
-    console.log('image Loaded');
-    imageLoaded++;
+    imagesLoaded++;
+    console.log('image Loaded: ', imagesLoaded);
+    console.log(`loaded: ${imagesLoaded}, total: ${totalImages}`);
     if ( imagesLoaded === totalImages ) {
         ready = true;
+        loader.hidden = true;
         console.log(`ready = ${ready}`);
     }
 }
@@ -35,7 +37,7 @@ function setAttributes(element, attributes) {
 
 // Programmatically create elements for links/photos; manipulate into DOM
 function displayPhotos() {
-    totalImages = photosArray.length;
+    totalImages += photosArray.length;
     console.log(`total images: ${totalImages}`);
 
     // 'forEach': run function for each object in 'photosArray'
@@ -56,6 +58,7 @@ function displayPhotos() {
         })
 
         // Add event listener to check when each img is finished loading
+        img.addEventListener('load', imageLoaded);
         
         // Put img inside a, put a inside image-container
         item.appendChild(img);
@@ -73,6 +76,7 @@ async function getPhotos() {
         displayPhotos();
     } catch (error) {
         // Catch error here
+        console.log(error);
     }
 }
 
@@ -80,6 +84,8 @@ async function getPhotos() {
 window.addEventListener('scroll', () => {
     // See if user has scrolled 70% of page, load more if so
     if (window.innerHeight + window.scrollY >= (document.body.offsetHeight * 0.7) && ready ) {
+        // set back to false so only downloads when previous 
+        // requests have been completed.
         ready = false;
         getPhotos();
     };
