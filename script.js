@@ -1,5 +1,3 @@
-// let corsProxyServer = https://gentle-plains-15721.herokuapp.com/ ;
-
 const imageContainer = document.getElementById('image-container');
 const loader = document.getElementById('loader');
 
@@ -19,12 +17,15 @@ const unsplashApiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiK
 // Check if all images were loaded
 function imageLoaded() {
     imagesLoaded++;
-    console.log('image Loaded: ', imagesLoaded);
     console.log(`loaded: ${imagesLoaded}, total: ${totalImages}`);
     if ( imagesLoaded === totalImages ) {
+        // done getting photos for now, set ready to get photos again
         ready = true;
-        loader.hidden = true;
-        console.log(`ready = ${ready}`);
+        // hide loader after getting photos 1st time
+        if (loader.hidden == false) {
+            loader.hidden = true;
+        }
+        console.log('<< Ready for more. >>');
     }
 }
 
@@ -37,8 +38,8 @@ function setAttributes(element, attributes) {
 
 // Programmatically create elements for links/photos; manipulate into DOM
 function displayPhotos() {
+    // Keep tally of all photos loaded into page so far
     totalImages += photosArray.length;
-    console.log(`total images: ${totalImages}`);
 
     // 'forEach': run function for each object in 'photosArray'
     photosArray.forEach((photo) => {
