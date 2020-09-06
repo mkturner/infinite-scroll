@@ -25,10 +25,6 @@ function imageLoaded() {
     if ( imagesLoaded === totalImages ) {
         // done getting photos for now, set ready to get photos again
         ready = true;
-        // hide loader after getting photos 1st time
-        if (isInitialLoad) {
-            loader.hidden = true;
-        }
         console.log('<< Ready for more >>');
     }
 }
@@ -89,8 +85,12 @@ async function getPhotos() {
 
     // Initially load 5 for page load speed, subsequent requests for 30 pics
     if (isInitialLoad) {
-        tryLoadPhotos(5);
-        isInitialLoad = false;
+        tryLoadPhotos(5).then(() => {
+            // hide loader after getting photos 1st time
+            loader.hidden = true;
+            // flip condition so we can make larger requests
+            isInitialLoad = false;
+        });
     } else {
         tryLoadPhotos(30);
     }
